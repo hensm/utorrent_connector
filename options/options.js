@@ -23,7 +23,7 @@ const option_password = document.querySelector("#password");
 function get_values () {
     return {
         protocol : option_protocol.options[option_protocol.selectedIndex].value
-      , host : option_host.value
+      , host     : option_host.value
       , port     : parseInt(option_port.value)
       , username : option_username.value
       , password : option_password.value
