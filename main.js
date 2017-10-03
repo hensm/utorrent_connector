@@ -1,5 +1,8 @@
 "use strict";
 
+const _ = browser.i18n.getMessage;
+
+
 chrome.runtime.onInstalled.addListener(() => {
     // Open options page to initialize storage and allow
     // user to set up the connection
@@ -115,13 +118,13 @@ browser.menus.onClicked.addListener(async info => {
 
                 browser.notifications.create("success-notification", {
                     type: "basic"
-                  , title: "Torrent added"
-                  , message: "Add to uTorrent successful"
+                  , title: _("notification_success_title")
+                  , message: _("notification_success_message")
                 });
             } catch (err) {
                 browser.notifications.create("failed-notification", {
                     type: "basic"
-                  , title: "Failed to add torrent"
+                  , title: _("notification_failed_title")
                   , message: err.toString()
                 });
             }

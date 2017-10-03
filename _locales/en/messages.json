@@ -6,6 +6,16 @@
         "message": "Connects to a uTorrent client to queue torrents from page links."
     }
 
+  , "notification_success_title": {
+        "message": "Torrent added"
+    }
+  , "notification_success_message": {
+        "message": "Add to uTorrent successful"
+    }
+  , "notification_failed_title": {
+        "message": "Failed to add torrent"
+    }
+
   , "options_page_title": {
         "message": "uTorrent Connector Options"
     }
