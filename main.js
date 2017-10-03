@@ -88,7 +88,6 @@ async function do_api_request (url_params) {
     const url = `${api_url}/?${url_params.toString()}`;
 
     const res_body = await fetch(url, api_info);
-    console.log(res_body);
     const res_json = await res_body.json();
 
     return res_json;
