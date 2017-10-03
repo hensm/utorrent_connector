@@ -1,0 +1,28 @@
+fieldset {
+    display: grid;
+    grid-template-columns: 60px min-content;
+    grid-column-gap: 20px;
+    grid-row-gap: 5px;
+}
+
+input {
+    inline-size: auto;
+}
+
+label {
+    display: contents;
+}
+
+.label {
+    text-align: right;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+}
+
+#submit {
+    align-self: flex-end;
+    margin-block-start: 5px;
+}

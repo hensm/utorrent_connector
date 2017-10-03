@@ -1,0 +1,37 @@
+{
+    "extension_name": {
+        "message": "uTorrent Connector"
+    }
+  , "extension_description": {
+        "message": "Connects to a uTorrent client to queue torrents from page links."
+    }
+
+  , "options_page_title": {
+        "message": "uTorrent Connector Options"
+    }
+  , "options_page_connection": {
+        "message": "Connection"
+    }
+  , "options_page_auth": {
+        "message": "Auth"
+    }
+  , "options_page_submit": {
+        "message": "Apply"
+    }
+
+  , "option_protocol": {
+        "message": "Protocol"
+    }
+  , "option_host": {
+        "message": "Host"
+    }
+  , "option_port": {
+        "message": "Port"
+    }
+  , "option_username": {
+        "message": "Username"
+    }
+  , "option_password": {
+        "message": "Password"
+    }
+}
