@@ -50,10 +50,11 @@ async function get_api_info () {
  * Fetches and parses the token.html document to get a
  * request token for API requests.
  * 
- * Requires an endpoint URL as it's always called from other
- * request functions that have already fetched the URL.
+ * Requires API params as it's always called from other
+ * request functions that have already fetched them.
  *
- * @param api_url API endpoint URL
+ * @param api_url  API endpoint URL
+ * @param api_info API fetch info
  */
 async function get_token (api_url, api_info) {
     const res_body = await fetch(`${api_url}/token.html`, api_info);
