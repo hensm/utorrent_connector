@@ -1,0 +1,47 @@
+{
+    "extension_name": {
+        "message": "uTorrent 连接器"
+    }
+  , "extension_description": {
+        "message": "连接到一个 uTorrent 客户端，将网页上的链接加入队列。"
+    }
+
+  , "notification_success_title": {
+        "message": "已添加种子"
+    }
+  , "notification_success_message": {
+        "message": "成功添加到 uTorrent"
+    }
+  , "notification_failed_title": {
+        "message": "添加种子失败"
+    }
+
+  , "options_page_title": {
+        "message": "uTorrent 连接器选项"
+    }
+  , "options_page_connection": {
+        "message": "连接"
+    }
+  , "options_page_auth": {
+        "message": "验证"
+    }
+  , "options_page_submit": {
+        "message": "应用"
+    }
+
+  , "option_protocol": {
+        "message": "协议"
+    }
+  , "option_host": {
+        "message": "主机"
+    }
+  , "option_port": {
+        "message": "端口"
+    }
+  , "option_username": {
+        "message": "用户名"
+    }
+  , "option_password": {
+        "message": "密码"
+    }
+}
