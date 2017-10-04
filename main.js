@@ -107,7 +107,7 @@ browser.menus.onClicked.addListener(async info => {
     switch (info.menuItemId) {
         case "utorrent_add":
             // Skip if not a valid torrent URL
-            if (!/(^magnet:\?|\.torrent$)/.test(info.linkUrl)) break;
+            if (!/(^magnet:\?|\.torrent(\/?(\?.*)?)?$)/.test(info.linkUrl)) break;
 
             const params = new URLSearchParams();               
             params.append("action", "add-url");
