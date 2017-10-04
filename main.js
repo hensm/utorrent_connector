@@ -106,8 +106,15 @@ browser.menus.create({
 browser.menus.onClicked.addListener(async info => {
     switch (info.menuItemId) {
         case "utorrent_add":
-            // Skip if not a valid torrent URL
-            if (!/(^magnet:\?|\.torrent(\/?(\?.*)?)?$)/.test(info.linkUrl)) break;
+            // Notify user if not a valid torrent URL
+            if (!/(^magnet:\?|\.torrent(\/?(\?.*)?)?$)/.test(info.linkUrl)) {
+                browser.notifications.create("invalid-notification", {
+                    type: "basic"
+                  , title: _("notification_invalid_title")
+                  , message: _("notification_invalid_message")
+                });
+                break;
+            }
 
             const params = new URLSearchParams();               
             params.append("action", "add-url");

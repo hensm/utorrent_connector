@@ -15,6 +15,12 @@
   , "notification_failed_title": {
         "message": "Failed to add torrent"
     }
+  , "notification_invalid_title": {
+        "message": "Invalid link"
+    }
+  , "notification_invalid_message": {
+        "message": "Link is not a valid torrent/magnet URL"
+    }
 
   , "options_page_title": {
         "message": "uTorrent Connector Options"
