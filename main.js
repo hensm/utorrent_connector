@@ -80,12 +80,14 @@ async function do_api_request (url_params) {
     const api_url  = await get_api_url();
     const api_info = await get_api_info();
 
-    // Append token / timestamp to request
-    url_params.append("token", await get_token(api_url, api_info));
+    // Append timestamp to request
     url_params.append("t", Date.now());
 
+    // Token must come before other parameters for a valid request
+    const token = await get_token(api_url, api_info);
+
     // Make request URL from params
-    const url = `${api_url}/?${url_params.toString()}`;
+    const url = `${api_url}/?token=${token}&${url_params.toString()}`;
 
     const res_body = await fetch(url, api_info);
     const res_json = await res_body.json();
