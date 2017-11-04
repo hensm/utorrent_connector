@@ -3,9 +3,9 @@
 const _ = browser.i18n.getMessage;
 
 /**
- * Loop through all elements with the data-i18n attribute
- * and set their content to the current locale message
- * specified by the attribute value.
+ * Loop through all elements with the data-i18n attribute and
+ * set their content to the current locale message specified by
+ * the attribute value.
  */
 for (const el of document.querySelectorAll("[data-i18n]")) {
     el.textContent = _(el.dataset["i18n"]);

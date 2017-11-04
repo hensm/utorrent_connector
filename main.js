@@ -3,9 +3,11 @@
 const _ = browser.i18n.getMessage;
 
 
-chrome.runtime.onInstalled.addListener(() => {
-    // Open options page to initialize storage and allow
-    // user to set up the connection
+browser.runtime.onInstalled.addListener(() => {
+    /**
+     * Open options page to initialize storage and allow user to
+     * set up the connection.
+     */
     browser.runtime.openOptionsPage();
 });
 
@@ -26,8 +28,8 @@ async function get_api_url () {
 }
 
 /**
- * Gets fetch init object for valid API requests. Includes
- * HTTP auth headers and correct cookie handling.
+ * Gets fetch init object for valid API requests. Includes HTTP
+ * auth headers and correct cookie handling.
  */
 async function get_api_info () {
     const { username, password } = await get_options();
@@ -47,11 +49,11 @@ async function get_api_info () {
 
 
 /**
- * Fetches and parses the token.html document to get a
- * request token for API requests.
+ * Fetches and parses the token.html document to get a request
+ * token for API requests.
  * 
- * Requires API params as it's always called from other
- * request functions that have already fetched them.
+ * Requires API params as it's always called from other request
+ * functions that have already fetched them.
  *
  * @param api_url  API endpoint URL
  * @param api_info API fetch info
