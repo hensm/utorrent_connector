@@ -1,18 +1,15 @@
 "use strict";
 
-const _ = browser.i18n.getMessage;
+// TODO: Rewrite with react
+import React from "react";
+import ReactDOM from "react-dom";
 
-/**
- * Loop through all elements with the data-i18n attribute and
- * set their content to the current locale message specified by
- * the attribute value.
- */
-for (const el of document.querySelectorAll("[data-i18n]")) {
-    el.textContent = _(el.dataset["i18n"]);
-}
+const _ = browser.i18n.getMessage;
 
 
 const form = document.querySelector("#form");
+const btn_test = document.querySelector("#test");
+const btn_submit = document.querySelector("#submit");
 
 const option_protocol = document.querySelector("#protocol");
 const option_host     = document.querySelector("#host");
@@ -69,9 +66,31 @@ browser.storage.sync.get("options")
     });
 
 
+btn_test.addEventListener("click", async ev => {
+    btn_test.disabled = "true";
+    btn_test.textContent = _("options_page_test_pending");
+
+    const api = new utorrent_api(get_values());
+    if (await api.test()) {
+        btn_test.textContent = _("options_page_test_valid");
+    } else {
+        btn_test.textContent = _("options_page_test_invalid");
+    }
+
+    window.setTimeout(() => {
+        btn_test.textContent = _("options_page_test");
+        btn_test.removeAttribute("disabled");
+    }, 2000);
+});
+
 form.addEventListener("submit", async ev => {
+    form.reportValidity();
     browser.storage.sync.set({
         options: get_values()
+    });
+
+    browser.runtime.sendMessage({
+        subject: "options_updated"
     });
 
     ev.preventDefault();

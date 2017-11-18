@@ -1,0 +1,160 @@
+:root {}
+
+body {
+    margin: initial;
+    overflow: hidden;
+
+}
+
+body:not(.panel) {
+    font: menu;
+}
+body.panel {
+    width: 350px;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+}
+
+.loading,
+.error {
+    align-self: center;
+    font-size: 1.25em;
+    height: 320px;
+    line-height: 320px;
+}
+.loading::before {
+    animation: spinner 500ms ease infinite;
+    border-radius: 50%;
+    border: 0.15em solid currentColor;
+    border-bottom-color: transparent;
+    border-top-color: transparent;
+    content: "";
+    display: inline-block;
+    height: 1em;
+    margin-inline-end: 0.5em;
+    opacity: 0.75;
+    vertical-align: middle;
+    width: 1em;
+}
+.error {
+    
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+}
+
+.torrent {
+    display: flex;
+    flex-direction: column;
+    padding: 0.65em 1em;
+}
+.torrent:not(:last-child) {
+    border-block-end: 1px solid rgba(0, 0, 0, 0.15);
+}
+.torrent > :not(:last-child) {
+    margin-block-end: 0.25em;
+}
+
+
+.torrent-status,
+.torrent-speed,
+.torrent-eta,
+.torrent-size {
+    font-size: 11px;
+    color: #737373;
+}
+
+.torrent-name-line,
+.torrent-status-line,
+.torrent-size-line {
+    align-items: center;
+    display: flex;
+}
+
+.torrent-name-line > .torrent-name,
+.torrent-status-line > .torrent-status,
+.torrent-size-line > .torrent-size {
+    flex: 1;
+}
+
+.torrent-name {
+    font-size: 13px;
+    margin-inline-end: 1em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.torrent-status {
+    display: flex;
+}
+.torrent-progress {
+    display: flex;
+}
+.torrent-progress progress {
+    background-color: #ededf0;
+    border: initial;
+    border-radius: 3px;
+    flex: 1;
+    height: 8px;
+    overflow: hidden;
+}
+.torrent.downloading .torrent-progress progress::-moz-progress-bar {
+    background-color: #0a84ff;
+}
+.torrent.uploading .torrent-progress progress::-moz-progress-bar {
+    background-color: #12bc00;
+}
+.torrent.paused .torrent-progress progress::-moz-progress-bar,
+.torrent.stopped .torrent-progress progress::-moz-progress-bar {
+    background-color: #b1b1b3;
+}
+
+.torrent.stopped {
+    
+}
+
+.torrent-eta {
+    display: none;
+}
+.torrent.downloading:not(.paused):not(.stopped):not(.finished) .torrent-eta {
+    display: initial;
+}
+
+.torrent-controls {
+    display: flex;
+    opacity: 0;
+    transition: opacity 250ms cubic-bezier(.07,.95,0,1);
+}
+.torrent:hover .torrent-controls {
+    opacity: 1;
+}
+
+.torrent-control {
+    opacity: 0.65;
+}
+.torrent-control:hover {
+    opacity: 1;
+}
+
+.torrent.stopped .torrent-control-stop,
+.torrent.finished .torrent-control-stop {
+    display: none;
+}
+
+.torrent.paused .torrent-control-pause,
+.torrent.stopped .torrent-control-pause,
+.torrent.finished .torrent-control-pause {
+    display: none;
+}
+.torrent:not(.paused):not(.stopped):not(.finished) .torrent-control-resume {
+    display: none;
+}
+

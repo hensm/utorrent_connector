@@ -1,0 +1,126 @@
+{
+    "extension_name": {
+        "message": "uTorrent Connector"
+    }
+  , "extension_description": {
+        "message": "Connects to a uTorrent client to queue torrents from page links."
+    }
+
+  , "notification_success_title": {
+        "message": "Torrent added"
+    }
+  , "notification_success_message": {
+        "message": "Add to uTorrent successful"
+    }
+  , "notification_failed_title": {
+        "message": "Failed to add torrent"
+    }
+  , "notification_failed_message": {
+        "message": "Connection failed or invalid credentials provided."
+    }
+  , "notification_invalid_title": {
+        "message": "Invalid link"
+    }
+  , "notification_invalid_message": {
+        "message": "Link is not a valid torrent/magnet URL"
+    }
+
+  , "options_page_title": {
+        "message": "uTorrent Connector Options"
+    }
+  , "options_page_connection": {
+        "message": "Connection"
+    }
+  , "options_page_auth": {
+        "message": "Auth"
+    }
+  , "options_page_submit": {
+        "message": "Apply"
+    }
+
+  , "option_protocol": {
+        "message": "Protocol"
+    }
+  , "option_host": {
+        "message": "Host"
+    }
+  , "option_port": {
+        "message": "Port"
+    }
+  , "option_username": {
+        "message": "Username"
+    }
+  , "option_password": {
+        "message": "Password"
+    }
+
+
+  , "popup_show_all_torrents": {
+        "message": "Show in tab"
+    }
+
+  , "popup_torrent_speed": {
+        "message": "D: $download_speed$/s U: $upload_speed$/s"
+      , "placeholders": {
+            "download_speed": {
+                "content": "$1"
+            }
+          , "upload_speed": {
+                "content": "$2"
+            }
+        }
+    }
+  , "popup_torrent_size": {
+        "message": "$downloaded$ of $size$ ($percentage$%)"
+      , "placeholders": {
+            "downloaded": {
+                "content": "$1"
+            }
+          , "size": {
+                "content": "$2"
+            }
+          , "percentage": {
+                "content": "$3"
+            }
+        }
+    }
+  , "popup_torrent_eta_remaining": {
+        "message": "$time$ remaining"
+      , "placeholders": {
+            "time": {
+                "content": "$1"
+            }
+        }
+    }
+  , "popup_torrent_resume_title": {
+        "message": "Resume"
+    }
+  , "popup_torrent_pause_title": {
+        "message": "Pause"
+    }
+  , "popup_torrent_stop_title": {
+        "message": "Stop"
+    }
+  , "popup_torrent_remove_title": {
+        "message": "Remove"
+    }
+
+  , "popup_torrent_status_queued": {
+        "message": "Queued"
+    }
+  , "popup_torrent_status_paused": {
+        "message": "Paused"
+    }
+  , "popup_torrent_status_stopped": {
+        "message": "Stopped"
+    }
+  , "popup_torrent_status_finished": {
+        "message": "Finished"
+    }    
+  , "popup_torrent_status_downloading": {
+        "message": "Downloading"
+    }
+  , "popup_torrent_status_uploading": {
+        "message": "Seeding"
+    }
+}

@@ -1,6 +1,6 @@
 fieldset {
     display: grid;
-    grid-template-columns: 60px min-content;
+    grid-template-columns: 10ch min-content;
     grid-column-gap: 20px;
     grid-row-gap: 5px;
 }
@@ -22,7 +22,7 @@ label {
     flex-direction: column;
 }
 
-#submit {
+#buttons {
     align-self: flex-end;
     margin-block-start: 5px;
 }

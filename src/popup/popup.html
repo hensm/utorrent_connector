@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" href="assets/colors.css">
+        <link rel="stylesheet" href="popup.css">
+
+        <script src="../lib/i18n.js" defer></script>
+        <script src="../lib/utorrent_api.js" defer></script>
+
+        <script src="../lib/init.bundle.js" defer></script>
+        <script src="bundle.js" defer></script>
+
+        <!-- Panel-specific code -->
+        <script src="popup_panel.js" defer></script>
+    </head>
+    <body class="panel">
+        <div id="root"></div>
+        <div class="panel-section panel-section-footer">
+            <div id="show_all_torrents"
+                 class="panel-section-footer-button"
+                 data-i18n="popup_show_all_torrents">        
+            </div>
+        </div>
+    </body>
+</html>
