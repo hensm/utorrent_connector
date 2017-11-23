@@ -38,6 +38,19 @@
         "message": "Apply"
     }
 
+  , "options_page_test": {
+        "message": "Test"
+    }
+  , "options_page_test_pending": {
+        "message": "Testing"
+    }
+  , "options_page_test_valid": {
+        "message": "Valid"
+    }
+  , "options_page_test_invalid": {
+        "message": "Invalid"
+    }
+
   , "option_protocol": {
         "message": "Protocol"
     }
@@ -57,6 +70,17 @@
 
   , "popup_show_all_torrents": {
         "message": "Show in tab"
+    }
+
+  , "popup_title": {
+        "message": "Torrent List"
+    }
+
+  , "popup_loading": {
+        "message": "Loading"
+    }
+  , "popup_loading_failed": {
+        "message": "Failed to load"
     }
 
   , "popup_torrent_speed": {

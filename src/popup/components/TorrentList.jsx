@@ -25,11 +25,12 @@ class TorrentList extends React.Component {
     render () {
         return (
             <div className="torrents-list">
-                { this.props.store.torrents.map(torrent => (
-                    <Torrent
-                        torrent={torrent}
-                        torrent_list={this.props.store} />
-                ))}
+                {
+                    this.props.store.torrents.map(torrent => (
+                        <Torrent
+                            torrent={torrent}
+                            torrent_list={this.props.store} />))
+                }
             </div>
         );
     }

@@ -48,32 +48,23 @@ function format_size (bytes, precision = 1) {
     }
 }
 
+
 @observer
 class Torrent extends React.Component {
     constructor (props) {
         super(props);
     }
-
     
-    handle_resume () {
-        this.props.torrent.resume();
-    }
-
-    
-    handle_pause () {
-        this.props.torrent.pause();
-    }
-
-    
-    handle_stop () {
-        this.props.torrent.stop();
-    }
-
+    // Event handlers
+    handle_resume () { this.props.torrent.resume(); }
+    handle_pause  () { this.props.torrent.pause();  }
+    handle_stop   () { this.props.torrent.stop();   }
     
     handle_remove () {
         this.props.torrent_list.remove_torrent(
                 this.props.torrent.hash);
     }
+
 
     render () {
         // Most appropriate single status for UI
@@ -111,8 +102,9 @@ class Torrent extends React.Component {
             ? "uploading"
             : "downloading");
 
+
         return (
-            <div className={`torrent ${class_list.join(" ")}`}>
+            <div className={ `torrent ${class_list.join(" ")}` }>
                 <div className="torrent-name-line">
                     <div className="torrent-name">
                         { this.props.torrent.name }
@@ -141,37 +133,42 @@ class Torrent extends React.Component {
                     </div>
                 </div>
                 <div className="torrent-size-line">
-                    <div className="torrent-size">{
-                        // downloaded of size (x%)
-                        _("popup_torrent_size", [
-                            format_size(this.props.torrent.downloaded)
-                          , format_size(this.props.torrent.size)
-                          , Math.floor(this.props.torrent.progress / 10)
-                        ])
-                    }</div>
-                    <div className="torrent-speed">{
-                        // U: **/s D: **/s
-                        _("popup_torrent_speed", [
-                            format_size(this.props.torrent.download_speed)
-                          , format_size(this.props.torrent.upload_speed)
-                        ])
-                    }</div>
+                    <div className="torrent-size">
+                        {
+                            // downloaded of size (x%)
+                            _("popup_torrent_size", [
+                                format_size(this.props.torrent.downloaded)
+                              , format_size(this.props.torrent.size)
+                              , Math.floor(this.props.torrent.progress / 10)
+                            ])
+                        }
+                    </div>
+                    <div className="torrent-speed">
+                        {
+                            // U: **/s D: **/s
+                            _("popup_torrent_speed", [
+                                format_size(this.props.torrent.download_speed)
+                              , format_size(this.props.torrent.upload_speed)
+                            ])
+                        }
+                    </div>
                 </div>
                 <div className="torrent-progress">
-                    <progress max="1000" value={this.props.torrent.progress}>
-                    </progress>
+                    <progress max="1000" value={ this.props.torrent.progress }></progress>
                 </div>
                 <div className="torrent-status-line">
                     <div className="torrent-status">
                         { status }
                     </div>
-                    <div className="torrent-eta">{ do {
-                        // Convert eta to milliseconds and add to current time
-                        const eta_ms = (this.props.torrent.eta * 1000) + Date.now();
+                    <div className="torrent-eta">
+                        { do {
+                            // Convert eta to milliseconds and add to current time
+                            const eta_ms = (this.props.torrent.eta * 1000) + Date.now();
 
-                        _("popup_torrent_eta_remaining"
-                          , moment(eta_ms).fromNow(true));
-                    }}</div>
+                            _("popup_torrent_eta_remaining"
+                              , moment(eta_ms).fromNow(true));
+                        }}
+                    </div>
                 </div>
             </div>
         );
