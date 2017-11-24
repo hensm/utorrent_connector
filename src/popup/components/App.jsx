@@ -4,7 +4,7 @@ import React from "react";
 
 import { observer } from "mobx-react";
 
-import TorrentList from "./TorrentList";
+import TorrentList      from "./TorrentList";
 import TorrentListModel from "../models/TorrentListModel";
 
 

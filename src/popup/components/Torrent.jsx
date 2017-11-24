@@ -1,9 +1,11 @@
 "use strict";
 
-import React from "react";
+import React  from "react";
 import moment from "moment";
 
 import { observer, action } from "mobx-react";
+
+import { format_size } from "../../lib/utils";
 
 
 // getMessage alias
@@ -11,42 +13,6 @@ const _ = browser.i18n.getMessage;
 
 // Set moment i18n
 moment.locale(browser.i18n.getUILanguage());
-
-
-/**
- * Takes a size in bytes and returns it in a human readable
- * string format. Supports units up to a petabyte.
- *
- * @param bytes     Size
- * @param precision Decimal precision for conversions
- */
-function format_size (bytes, precision = 1) {
-    // Sizes in bytes
-    const kilobyte = 1024;
-    const megabyte = kilobyte * 1024;
-    const gigabyte = megabyte * 1024;
-    const terabyte = gigabyte * 1024;
-    const petabyte = terabyte * 1024;
-
-    if (bytes >= 0 && bytes < kilobyte) {
-        return `${bytes} B`;
-
-    } else if (bytes >= kilobyte && bytes < megabyte) {
-        return `${(bytes / kilobyte).toFixed(precision)} KB`;
-
-    } else if (bytes >= megabyte && bytes < gigabyte) {
-        return `${(bytes / megabyte).toFixed(precision)} MB`;
-
-    } else if (bytes >= gigabyte && bytes < terabyte) {
-        return `${(bytes / gigabyte).toFixed(precision)} GB`;
-
-    } else if (bytes >= terabyte && bytes < petabyte) {
-        return `${(bytes / terabyte).toFixed(precision)} TB`;
-
-    } else if (bytes >= petabyte) {
-        return `${(bytes / petabyte).toFixed(precision)} PB`;
-    }
-}
 
 
 @observer
@@ -112,22 +78,22 @@ class Torrent extends React.Component {
                     <div className="torrent-controls">
                         <div className="torrent-control torrent-control-resume"
                              title={ _("popup_torrent_resume_title") }
-                             onClick={ this.handle_resume.bind(this) } >
+                             onClick={ this.handle_resume.bind(this) }>
                             <img src="assets/ic_play_circle_outline_black_18px.svg" />
                         </div>
                         <div className="torrent-control torrent-control-pause"
                              title={ _("popup_torrent_pause_title") }
-                             onClick={ this.handle_pause.bind(this) } >
+                             onClick={ this.handle_pause.bind(this) }>
                             <img src="assets/ic_pause_circle_outline_black_18px.svg" />
                         </div>
                         <div className="torrent-control torrent-control-stop"
                              title={ _("popup_torrent_stop_title") }
-                             onClick={ this.handle_stop.bind(this) } >
+                             onClick={ this.handle_stop.bind(this) }>
                             <img src="assets/ic_stop_black_18px.svg" />
                         </div>
                         <div className="torrent-control torrent-control-remove"
                              title={ _("popup_torrent_remove_title") }
-                             onClick={ this.handle_remove.bind(this) } >
+                             onClick={ this.handle_remove.bind(this) }>
                             <img src="assets/ic_clear_black_18px.svg" />
                         </div>
                     </div>
