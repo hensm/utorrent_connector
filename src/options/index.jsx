@@ -11,7 +11,9 @@ class App extends React.Component {
         super(props);
 
         this.state = {
-            is_testing: false
+            is_valid: true
+
+          , is_testing: false
           , is_test_pending: false
           , is_test_valid: false
 
@@ -25,6 +27,7 @@ class App extends React.Component {
         this.handle_test = this.handle_test.bind(this);
         this.handle_submit = this.handle_submit.bind(this);
         this.handle_input_change = this.handle_input_change.bind(this);
+        this.handle_change = this.handle_change.bind(this);
     }
 
     set_storage () {
@@ -42,7 +45,10 @@ class App extends React.Component {
     async componentDidMount () {
         const { options } = await browser.storage.sync.get("options");
         if (options) {
-            this.setState(options);
+            this.setState({
+                ...options
+              , is_valid: this.form.checkValidity()
+            });
         } else {
             try {
                 await this.set_storage();
@@ -82,6 +88,7 @@ class App extends React.Component {
 
     async handle_submit (ev) {
         ev.preventDefault();
+
         ev.target.reportValidity();
 
         this.setState({
@@ -117,9 +124,18 @@ class App extends React.Component {
     }
 
 
+    handle_change (ev) {
+        this.setState({
+            is_valid: ev.currentTarget.checkValidity()
+        });
+    }
+
+
     render () {
         return (
-            <form id="form" onSubmit={ this.handle_submit }>
+            <form id="form" ref={ form => { this.form = form; } }
+                    onSubmit={ this.handle_submit }
+                    onChange={ this.handle_change }>
                 <fieldset>
                     <legend>
                         { _("options_page_connection") }
@@ -130,6 +146,7 @@ class App extends React.Component {
                             { _("option_protocol") }
                         </div>
                         <select name="protocol" class="browser-style"
+                                required
                                 value={ this.state.protocol }
                                 onChange={ this.handle_input_change }>
                             <option>http</option>
@@ -141,6 +158,8 @@ class App extends React.Component {
                             { _("option_host") }
                         </div>
                         <input name="host" type="text"
+                                pattern="^[\w\d\.]+$"
+                                required
                                 value={ this.state.host }
                                 onChange={ this.handle_input_change } />
                     </label>
@@ -149,6 +168,7 @@ class App extends React.Component {
                             { _("option_port") }
                         </div>
                         <input name="port" type="number"
+                                required
                                 value={ this.state.port }
                                 onChange={ this.handle_input_change } />
                     </label>
@@ -164,6 +184,7 @@ class App extends React.Component {
                             { _("option_username") }
                         </div>
                         <input name="username" type="text"
+                                required
                                 value={ this.state.username }
                                 onChange={ this.handle_input_change } />
                     </label>
@@ -172,6 +193,7 @@ class App extends React.Component {
                             { _("option_password") }
                         </div>
                         <input name="password" type="password"
+                                required
                                 value={ this.state.password }
                                 onChange={ this.handle_input_change } />
                     </label>
@@ -179,7 +201,7 @@ class App extends React.Component {
 
                 <div id="buttons">
                     <button class="browser-style"
-                            disabled={this.state.is_testing }
+                            disabled={ this.state.is_testing }
                             onClick={ this.handle_test }>
                         { do {
                             if (this.state.is_testing) {
@@ -197,7 +219,8 @@ class App extends React.Component {
                             }
                         }}
                     </button>
-                    <button type="submit" class="browser-style">
+                    <button type="submit" class="browser-style"
+                            disabled={ !this.state.is_valid }>
                         { _("options_page_submit") }
                     </button>
                 </div>

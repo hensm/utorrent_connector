@@ -45,6 +45,7 @@ module.exports = {
                         "transform-decorators-legacy"
                       , "transform-class-properties"
                       , "transform-do-expressions"
+                      , "transform-object-rest-spread"
                     ]
                 }
             }

@@ -30,3 +30,7 @@ label {
 #buttons > :not(:last-child) {
     margin-inline-end: 5px;
 }
+
+*:invalid {
+    box-shadow: 0 0 1.5px 1px red;
+}
