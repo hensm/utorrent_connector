@@ -13,40 +13,6 @@
         <script src="bundle.js" defer></script>
     </head>
     <body>
-        <form id="form">
-            <fieldset>
-                <legend data-i18n="options_page_connection"></legend>
-                <label>
-                    <div class="label" data-i18n="option_protocol"></div>
-                    <select id="protocol" class="browser-style">
-                        <option selected>http</option>
-                        <option>https</option>
-                    </select>
-                </label>
-                <label class="browser-style">
-                    <div class="label" data-i18n="option_host"></div>
-                    <input id="host" type="text" value="localhost" required>
-                </label>
-                <label class="browser-style">
-                    <div class="label" data-i18n="option_port"></div>
-                    <input id="port" type="number" value="8080" required>
-                </label>
-            </fieldset>
-            <fieldset>
-                <legend data-i18n="options_page_auth"></legend>
-                <label class="browser-style">
-                    <div class="label" data-i18n="option_username"></div>
-                    <input id="username" type="text" value="admin" required>
-                </label>
-                <label class="browser-style">
-                    <div class="label" data-i18n="option_password"></div>
-                    <input id="password" type="password" required>
-                </label>
-            </fieldset>
-            <div id="buttons">
-                <button id="test" class="browser-style" data-i18n="options_page_test"></button>
-                <button type="submit" id="submit" class="browser-style" data-i18n="options_page_submit"></button>
-            </div>
-        </form>
+        <div id="root"></div>
     </body>
 </html>

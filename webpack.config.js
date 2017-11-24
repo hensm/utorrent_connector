@@ -13,7 +13,7 @@ module.exports = {
     // Entry points output to their name as a path within dist.
     entry: {
         "popup/bundle": `${include_path}/popup/index.jsx`
-      , "options/bundle": `${include_path}/options/options.jsx`
+      , "options/bundle": `${include_path}/options/index.jsx`
     }
   , output: {
         filename: "[name].js"
