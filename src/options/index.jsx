@@ -54,6 +54,7 @@ class App extends React.Component {
 
     async handle_test (ev) {
         ev.preventDefault();
+
         this.setState({
             is_testing: true
           , is_test_pending: true
@@ -80,6 +81,7 @@ class App extends React.Component {
     }
 
     async handle_submit (ev) {
+        ev.preventDefault();
         ev.target.reportValidity();
 
         this.setState({
@@ -97,7 +99,6 @@ class App extends React.Component {
             // TODO
         }
 
-        ev.preventDefault();
     }
 
 
