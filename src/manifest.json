@@ -16,8 +16,8 @@
 
   , "applications": {
         "gecko": {
-            "id": "torrent@matt.tf",
-            "strict_min_version": "55.0"
+            "id": "torrent@matt.tf"
+          , "strict_min_version": "55.0"
         }
     }
 
