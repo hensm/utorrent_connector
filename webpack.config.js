@@ -12,7 +12,8 @@ const output_path  = path.resolve(__dirname, "dist");
 module.exports = {
     // Entry points output to their name as a path within dist.
     entry: {
-        "popup/bundle": `${include_path}/popup/index.jsx`
+        "main": `${include_path}/main.js`
+      , "popup/bundle": `${include_path}/popup/index.jsx`
       , "options/bundle": `${include_path}/options/index.jsx`
     }
   , output: {

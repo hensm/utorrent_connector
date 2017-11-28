@@ -24,6 +24,7 @@
   , "background": {
         "scripts": [
             "lib/utorrent_api.js"
+          , "lib/init.bundle.js"
           , "main.js"
         ]
       , "persistent": false
