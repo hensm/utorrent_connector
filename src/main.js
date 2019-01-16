@@ -57,23 +57,12 @@ browser.menus.create({
     "id": "utorrent_add"
   , "title": "Add to uTorrent"
   , "contexts": [ "link" ]
-    // Broken due to bug 1280370:
-    // , "targetUrlPatterns": [ "magnet:*", "*://*/*.torrent" ]
+  , "targetUrlPatterns": [ "magnet:*", "*://*/*.torrent*" ]
 });
 
 browser.menus.onClicked.addListener(async info => {
     switch (info.menuItemId) {
         case "utorrent_add":
-            // Notify user if not a valid torrent URL
-            if (!/(^magnet:\?|\.torrent(\/?(\?.*)?)?$)/.test(info.linkUrl)) {
-                browser.notifications.create("invalid-notification", {
-                    type: "basic"
-                  , title: _("notification_invalid_title")
-                  , message: _("notification_invalid_message")
-                });
-                break;
-            }
-
             try {
                 await api.test();
                 await api.add_url(info.linkUrl);
