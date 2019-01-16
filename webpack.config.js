@@ -31,7 +31,7 @@ module.exports = {
         // Copy other files to dist directory
       , new webpack_copy(
             [{ from: include_path }]
-          , { ignore: [ "*.jsx" ]})
+          , { ignore: [ "popup/**/*.js", "*.jsx" ]})
     ]
   , devtool: "inline-source-map"
   , module: {

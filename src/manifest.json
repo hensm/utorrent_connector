@@ -12,12 +12,10 @@
   , "default_locale": "en"
   , "manifest_version": 2
 
-  , "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
-
   , "applications": {
         "gecko": {
             "id": "torrent@matt.tf"
-          , "strict_min_version": "55.0"
+          , "strict_min_version": "63.0"
         }
     }
 
